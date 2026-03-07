@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: red;
+    --second-color: red;
+    --detail-color: red;
+}
+#container-home {
+    border: 1px solid red;
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.logo > img{
+    width: 100%;
+    max-width: 350px;
+}
+
+
+@media (max-width: 768px) {
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        display: none;
+    }
+    #name-input {
+        width: 95%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+}

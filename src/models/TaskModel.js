@@ -4,6 +4,7 @@ const path = require("node:path");
 
 
 class TaskModel {
+    
     static caminho = path.join(__dirname, "..", "database.json")
 
     static async adicionarTask(newtask) {
