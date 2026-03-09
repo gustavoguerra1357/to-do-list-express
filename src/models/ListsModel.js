@@ -2,7 +2,7 @@ const fs = require("node:fs").promises;
 const path = require("node:path");
 
 
-class ListModel {
+class ListsModel {
 
     static caminho = path.join(__dirname, "..", "database.json")
 
@@ -25,6 +25,12 @@ class ListModel {
         }
     }
 
+    static async getListById(id) {
+        const listas = await this.getListas()
+        const listaEncontrada = listas.find(lista => lista.id == id)
+        return listaEncontrada
+    }
+
 }
 
-module.exports = { ListModel };
+module.exports = { ListsModel };

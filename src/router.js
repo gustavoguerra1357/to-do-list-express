@@ -1,10 +1,12 @@
 const express = require("express");
-const taskController = require("./controllers/TaskController");
+const listsController = require("./controllers/ListsController");
 
 const router = express.Router()
 
-//Rotas
-router.post("/tasks", taskController.addTask);
+
+
+router.get("/lists", listsController.getLists)
+router.get("/lists/:id", listsController.getListById)
 
 
 

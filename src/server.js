@@ -14,5 +14,5 @@ app.use(router)
 
 
 app.listen(3000, () => { 
-    console.log("O servidor exta executando em http://localhost:3000/")
+    console.log("O servidor esta executando em http://localhost:3000/")
 })
