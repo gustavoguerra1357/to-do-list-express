@@ -19,7 +19,7 @@ function createOption(lista) {
     listasdiv.append(div)
 }
 
-function createTask(task) {
+function createTask(task, idPai) {
     const div = document.createElement("div");
     const p = document.createElement("p");
     const delete_btn = document.createElement("button");
@@ -28,10 +28,17 @@ function createTask(task) {
 
     div.classList.add("option-div")
     div.dataset.id = task.id
+    div.dataset.idPai = idPai
     delete_btn.classList.add("delete-btn")
 
     div.onclick = (e) => {
         alert("Aqui vai marcar como concluida")
+    }
+
+    delete_btn.onclick = (e) => {
+        e.stopPropagation();
+        deletarTask(idPai, task.id);
+        div.remove()
     }
 
     div.append(p, delete_btn)
@@ -53,7 +60,7 @@ async function abrirLista(id) {
     const listaID = await response.json(); //retorna um a lista especificamente ( objeto)
     listasdiv.innerHTML = ""
     listaID.tarefas.forEach((task) => {
-        createTask(task)
+        createTask(task, id)
     })
 
     const voltar_btn = document.createElement("button");
@@ -64,8 +71,24 @@ async function abrirLista(id) {
     }
     listasdiv.append(voltar_btn)
 
+}
 
+async function deletarTask(idPai, idTask) {
+    const dados = { idPai: idPai, idTask: idTask}
+    await fetch("/lists/delete", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // O Express precisa disso para saber como ler o corpo
+        },
+        body: JSON.stringify(dados) // Transforma o objeto em texto JSON
+    })
 
+    abrirLista(idPai)
+    
+}
+
+async function adicionarTarefa(idPai, idTask) {
+    
 }
 
 exibirListas();

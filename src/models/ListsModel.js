@@ -31,6 +31,19 @@ class ListsModel {
         return listaEncontrada
     }
 
+    static async deletarTarefa(idTarefa, idPai) {
+        const listas = await this.getListas(); //pego todas as litas com suas tarefas
+
+        try {
+            const listaPai = listas.find(lista => lista.id == idPai) //Pego a lista pai, ou seja, a qual lista a tarefa que vou apagar se refere
+            listaPai.tarefas = listaPai.tarefas.filter(tarefa => tarefa.id !== idTarefa)
+            await fs.writeFile(this.caminho, JSON.stringify(listas, null, 2));
+            console.log("Tarefa apagada com sucesso.")
+        } catch (error) {
+            console.log("Erro ao deletar a tarefa.")
+        }
+    }
+
 }
 
 module.exports = { ListsModel };

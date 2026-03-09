@@ -4,20 +4,16 @@
     "nome": "LISTA DE CASA",
     "tarefas": [
       {
-        "nome": "Limpar o quarto",
-        "id": 28436
+        "nome": "Tarefa 1111",
+        "id": 1111
       },
       {
-        "nome": "Limpar a Pia",
-        "id": 56745
+        "nome": "Tarefa 222",
+        "id": 2222
       },
       {
-        "nome": "Limpar a sala",
-        "id": 234234
-      },
-      {
-        "nome": "Limpar a Garagem",
-        "id": 1343562212
+        "nome": "Tarefa 3333",
+        "id": 3333
       }
     ]
   },
@@ -26,12 +22,16 @@
     "nome": "LISTA DO TRABALHO",
     "tarefas": [
       {
-        "nome": "Arrumar um bug",
-        "id": 28436
+        "nome": "Tarefa 1111",
+        "id": 1111
       },
       {
-        "nome": "Fazer reuniao",
-        "id": 56745
+        "nome": "Tarefa 222",
+        "id": 2222
+      },
+      {
+        "nome": "Tarefa 333",
+        "id": 3333
       }
     ]
   }

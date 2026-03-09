@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.get("/lists", listsController.getLists)
 router.get("/lists/:id", listsController.getListById)
+router.post("/lists/delete", listsController.deleteTask)
 
 
 

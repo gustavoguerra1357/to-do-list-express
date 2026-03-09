@@ -1,4 +1,4 @@
-const { TaskModel } = require("../models/TaskModel")
+
 const { ListsModel } = require("../models/ListsModel")
 
 const listsController = {
@@ -19,6 +19,11 @@ const listsController = {
         } catch (error) {
             res.status(404).send("Lista nao encontrada")
         }
+    },
+    deleteTask: async (req, res) => {
+        const { idPai, idTask } = req.body
+        await ListsModel.deletarTarefa(idTask, idPai)
+
     }
 }
 
